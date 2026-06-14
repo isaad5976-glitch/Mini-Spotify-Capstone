@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Spotify - Content Manager Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <nav class="navigationBar admin-navbar">
+        <div class="nav-logo">🎵 Mini Spotify Admin <span class="admin-tag">CORE CRUD</span></div>
+        <div class="nav-links">
+            <a href="index.html">← Back to Player Application</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="admin-header" style="margin-bottom: 30px;">
+            <h1>Catalog Control Management System</h1>
+            <p style="color: #b3b3b3;">Add new music files, alter existing metadata items, or prune elements out of the server system indexing routes.</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3 id="statTotalSongs">0</h3>
+                <p>TOTAL TRACKS</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="statGenres">0</h3>
+                <p>GENRES INDEXED</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="statTotalDuration">0:00</h3>
+                <p>TOTAL RUNTIME</p>
+            </div>
+        </div>
+
+        <div class="admin-layout">
+            <div class="box" style="width: 100%; height: fit-content;">
+                <h3 id="adminFormTitle" style="color:#1DB954; margin-bottom:15px;">Add New Music Track</h3>
+                
+                <form id="adminTrackForm">
+                    <input type="hidden" id="adminTrackId">
+
+                    <label for="trackTitle">Track Title</label>
+                    <input type="text" id="trackTitle" required placeholder="e.g., Starboy">
+
+                    <label for="trackArtist">Lead Vocalist / Artist</label>
+                    <input type="text" id="trackArtist" required placeholder="e.g., The Weeknd">
+
+                    <label for="trackAlbum">Production Album</label>
+                    <input type="text" id="trackAlbum" required placeholder="e.g., Starboy Album">
+
+                    <label for="trackGenre">Music Classification Genre</label>
+                    <select id="trackGenre">
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
+
+                    <label for="trackDuration">Playback Duration Target</label>
+                    <input type="text" id="trackDuration" required placeholder="MM:SS (e.g., 3:50)">
+
+                    <label for="trackImage">Cover Image Local Path</label>
+                    <input type="text" id="trackImage" required placeholder="e.g., images/pop.jpg">
+
+                    <label for="trackAudio">Audio Resource Path</label>
+                    <input type="text" id="trackAudio" required placeholder="e.g., audios/water.mp3">
+
+                    <button type="submit" id="btnAdminSubmit">Upload Track Profile</button>
+                    <button type="button" id="btnAdminCancel" style="background:#555555; margin-top:10px; display:none;">Cancel Structural Updates</button>
+                </form>
+            </div>
+happy
+            <div>
+                <h2 style="margin-bottom: 20px;">Indexed Server Tracks</h2>
+                <div id="adminLoading" style="color:#1DB954; display:none;">Reading master server track catalog index maps...</div>
+                <div id="adminTracksTarget"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "songs": [
+    {
+      "id": "1",
+      "title": "Water",
+      "artist": "Kontraa",
+      "album": "Single",
+      "genre": "Pop",
+      "duration": "1:09",
+      "image": "images/pop.jpg",
+      "audio": "audios/water.mp3"
+    },
+    {
+      "id": "3",
+      "title": "Jazz Cafe",
+      "artist": "Fassounds",
+      "album": "Single",
+      "genre": "Jazz",
+      "duration": "3:16",
+      "image": "images/jazz.jpg",
+      "audio": "audios/jazz-cafe.mp3"
+    },
+    {
+      "id": "4",
+      "title": "Rock",
+      "artist": "Nastelbom",
+      "album": "Single",
+      "genre": "Rock",
+      "duration": "1:42",
+      "image": "images/rock.jpg",
+      "audio": "audios/rock.mp3"
+    },
+    {
+      "title": "Escape Your Love",
+      "artist": "Fassounds",
+      "album": "Single",
+      "genre": "Pop",
+      "duration": "2:18",
+      "image": "images/pop2.jpg",
+      "audio": "audios/escape-your-love.mp3",
+      "id": "FyEoxjhwWuY"
+    }
+  ],
+  "playlists": [
+    {
+      "name": "my pop mix",
+      "owner": "test",
+      "id": "0lpQpj-eDzk",
+      "songs": [
+        "4"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "test",
+      "email": "test@email.com",
+      "password": "test123",
+      "id": "HamPq9YM33k",
+      "liked": []
+    },
+    {
+      "username": "ayesha ",
+      "email": "ayesha@gmail.com",
+      "password": "ayesha123",
+      "id": "vOYaX_zE18U"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

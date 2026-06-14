@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Spotify - Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="authWrapper" class="auth-bg">
+        <div id="loginBox" class="box">
+            <div class="logo">🎵</div>
+            <h1>Mini Spotify</h1>
+            <div class="error-message" id="loginError">Invalid account combinations specified.</div>
+            
+            <form id="loginForm">
+                <label for="loginEmail">Email Address</label>
+                <input type="text" id="loginEmail" required placeholder="Enter your email" autocomplete="new-password" onfocus="this.type='email'">
+                
+                <label for="loginPassword">Password</label>
+                <input type="text" id="loginPassword" required placeholder="Enter your password" autocomplete="new-password" onfocus="this.type='password'">
+                
+                <button type="submit">LOG IN</button>
+            </form>
+            <div class="links">
+                <p>Don't have an account? <a href="#" id="toSignupLink">sign up</a></p>
+            </div>
+        </div>
+
+        <div id="signupBox" class="box" style="display: none;">
+            <div class="logo">🎵</div>
+            <h1>Create account</h1>
+            <div class="error-message" id="signupError">Registration profile could not be compiled.</div>
+            
+            <form id="signupForm">
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" required placeholder="please enter your name here" autocomplete="new-password">
+
+                <label for="signupEmail">Email Address</label>
+                <input type="text" id="signupEmail" required placeholder="enter email" autocomplete="new-password" onfocus="this.type='email'">
+                
+                <label for="signupPassword">Password</label>
+                <input type="text" id="signupPassword" required placeholder="Please enter your password here" autocomplete="new-password" onfocus="this.type='password'">
+                
+                <button type="submit">SIGN UP</button>
+            </form>
+            <div class="links">
+                <p>Already have an account? <a href="#" id="toLoginLink">log in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="appWrapper" style="display: none; padding-bottom: 110px;">
+        <nav class="navigationBar">
+            <div class="nav-logo">🎵 Mini spotify</div>
+            <div class="nav-links">
+                <a href="#" id="navHome" class="active">Home</a>
+                <a href="#" id="navPlaylists">Your playlists</a>
+                <a href="#" id="navFavorites">Favorites</a>
+                <a href="admin.html" style="color: #e67e22;">Admin Panel ⚙️</a>
+                <button class="logout-btn" id="logoutButton">Log out</button>
+            </div>
+        </nav>
+
+        <main>
+            <div id="discoverView">
+                <h1 style="margin-bottom: 5px;">welcome <span id="usernameGreeting">user</span>!</h1>
+                <p style="color: #b3b3b3; margin-bottom: 25px;">Discover your favorite music</p>
+                
+                <div class="filter-container">
+                    <input type="text" id="searchBar" class="searchBar" placeholder="Search for songs, artist and albums... " style="max-width: 400px;">
+                    <select id="genreDropdown" style="width: 200px;">
+                        <option value="ALL">All Genres</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
+                </div>
+
+                <div id="loadingStatus" style="color:#1DB954; text-align:center; display:none; margin-bottom:20px;">Streaming files...</div>
+                
+                <h2>Your Library</h2>
+                <div id="musicContainer" class="song-grid" style="margin-top:20px;"></div>
+            </div>
+
+            <div id="playlistView" style="display: none;">
+                <div class="playlist-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+                    <h1>Your Playlists</h1>
+                </div>
+                
+                <div class="box" style="width:100%; max-width:500px; margin-bottom:30px; background:#181818;">
+                    <h3 style="margin-bottom:15px; color:#1DB954;">Create New Playlist</h3>
+                    <form id="createPlaylistForm">
+                        <label for="newPlaylistName">Playlist Name</label>
+                        <input type="text" id="newPlaylistName" required placeholder="e.g., My Pop Mix">
+                        <button type="submit">Create Playlist</button>
+                    </form>
+                </div>
+
+                <div id="playlistContainer" class="song-grid"></div>
+            </div>
+
+            <div id="favoritesView" style="display: none;">
+                <div class="likedSongs-header">
+                    <div class="heart-box">❤️</div>
+                    <div>
+                        <h1>Liked songs</h1>
+                        <p id="favouriteCount" style="color:#b3b3b3;">0 songs</p>
+                    </div>
+                </div>
+                <div id="favoritesContainer" class="song-grid"></div>
+            </div>
+        </main>
+
+        <div class="player-bar">
+            <div class="player-track-info">
+                <img id="playerAlbumArt" alt="" style="display: none;">
+                <div>
+                    <h4 id="playerTrackTitle">No song playing</h4>
+                    <p id="playerTrackArtist">Select a track from library</p>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button id="btnPrev" class="media-btn">⏮</button>
+                    <button id="btnPlayPause" class="media-btn play-circle">▶</button>
+                    <button id="btnNext" class="media-btn">⏭</button>
+                </div>
+                <div class="progress-container">
+                    <span id="currentTime">0:00</span>
+                    <input type="range" id="progressSlider" value="0" max="100">
+                    <span id="totalDuration">0:00</span>
+                </div>
+            </div>
+            <div style="width: 25%; min-width:150px;"></div>
+        </div>
+    </div>
+
+    <audio id="nativeAudioElement"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
